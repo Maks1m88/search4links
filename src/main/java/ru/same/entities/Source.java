@@ -1,5 +1,7 @@
 package ru.same.entities;
 
+import org.hibernate.annotations.Type;
+
 import javax.persistence.*;
 
 @Entity
@@ -13,6 +15,7 @@ public class Source {
     //todo заменить имя таблицы на конфиг
     @Lob
     @Column(name = "data")
+//    @Type(type = "org.hibernate.type.TextType")
     private String data;
 
     public Source(String data) {
