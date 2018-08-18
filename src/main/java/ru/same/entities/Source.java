@@ -15,11 +15,13 @@ public class Source {
     //todo заменить имя таблицы на конфиг
     @Lob
     @Column(name = "data")
-//    @Type(type = "org.hibernate.type.TextType")
     private String data;
 
     public Source(String data) {
         this.data = data;
+    }
+
+    public Source() {
     }
 
     public Long getId() {

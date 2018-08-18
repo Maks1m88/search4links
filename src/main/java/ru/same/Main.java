@@ -4,7 +4,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
-import ru.same.logic.Process;
+import org.springframework.core.env.Environment;
+import ru.same.services.DataProcessingService;
 
 @SpringBootApplication
 //@EnableAutoConfiguration
@@ -13,8 +14,11 @@ public class Main {
     public static void main(String[] args) {
         ConfigurableApplicationContext ctx =
                 SpringApplication.run(Main.class, args);
-        Process process = ctx.getBean("process", Process.class);
-        process.process();
+        DataProcessingService process = ctx.getBean("dataProcessingService", DataProcessingService.class);
+//        process.invoke();
+        process.generateData();
         System.out.println(ctx);
+        Environment environment = ctx.getEnvironment();
+        ctx.close();
     }
 }
