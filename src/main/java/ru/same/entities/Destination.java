@@ -6,15 +6,18 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table
+@Table(name = "destination_table", schema = "destination_schema")
 public class Destination {
     //todo заменить имя таблицы на конфиг
-    @Column(name = "data")
+    @Column(name = "destination_column")
     @Id
     private String data;
 
     public Destination(String data) {
         this.data = data;
+    }
+
+    public Destination() {
     }
 
     public String getData() {

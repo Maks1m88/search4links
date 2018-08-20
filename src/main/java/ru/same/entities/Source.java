@@ -1,20 +1,16 @@
 package ru.same.entities;
 
-import org.hibernate.annotations.Type;
-
 import javax.persistence.*;
 
 @Entity
-//todo заменить имя таблицы на конфиг
-@Table(name = "source")
+@Table(name = "source_table", schema = "source_schema")
 public class Source {
-    @Column(name = "id")
+    @Column(name = "source_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     private Long id;
-    //todo заменить имя таблицы на конфиг
     @Lob
-    @Column(name = "data")
+    @Column(name = "source_column")
     private String data;
 
     public Source(String data) {
